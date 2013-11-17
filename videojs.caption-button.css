@@ -1,0 +1,12 @@
+.vjs-control.vjs-caption-button {
+    cursor: pointer;
+}
+
+/* Icons for the new captions control */
+.vjs-control.vjs-caption-button:before {
+    font-family: VideoJS;
+    content: "\e008";
+}
+.vjs-control.active:before {
+    color: #ff0000;
+}

@@ -3,6 +3,13 @@ videojs.Caption = videojs.Button.extend({
     init: function(player, options){
         videojs.Button.call(this, player, options);
         //this.on('click', this.onClick);
+
+        // Only use this control if the number of tracks is 1
+        if (this.player_.textTracks().length > 1) {
+            this.hide();
+        } else {
+            this.player_.controlBar.captionsButton.hide();
+        }
     }
 });
 

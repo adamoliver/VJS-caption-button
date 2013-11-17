@@ -2,35 +2,15 @@
 <html>
     <head>
         <link href="http://vjs.zencdn.net/4.3.0/video-js.css" rel="stylesheet">
-        <!-- For the captions icon. -->
-        <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">  
-        <style>
-            /* Hide the default captions control */
-            .vjs-captions-button {
-                display: none;
-            }
 
-            .vjs-control.vjs-caption-button {
-                cursor: pointer;
-            }
-
-            /* Icons for the new captions control */
-            .vjs-control.vjs-caption-button:before {
-                font-family: FontAwesome;
-                content: "\f086";
-            }
-            .vjs-control.active:before {
-                color: #ff0000;
-            }
-        </style>
+        <link rel="stylesheet" href="videojs.caption-button.css">
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="video.dev.js"></script>
-        
 
     </head>
     <body>
-        <video id="example_video_1" class="video-js vjs-default-skin" width="640" height="480" controls>
+        <video id="example_video_1" class="video-js vjs-default-skin" width="720" height="405" controls>
             <source type="video/mp4" src="http://video-js.zencoder.com/oceans-clip.mp4">
             <source type="video/webm" src="http://video-js.zencoder.com/oceans-clip.webm">
             <track kind="captions" src="demo.captions.vtt" srclang="en" label="English" default></track>
@@ -40,7 +20,7 @@
         <script>
             var vid = videojs("example_video_1", {
                 plugins : { caption : {} },
-                techOrder: ["flash","html5"]
+                techOrder: ["html5","flash"]
             });
         </script>
     </body>
