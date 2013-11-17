@@ -9,7 +9,9 @@ videojs.Caption = videojs.Button.extend({
 videojs.Caption.prototype.onClick = function() {
     var track = this.player_.textTracks()[0];
 
-    console.log($(this.el_).toggleClass('active'));
+    // TODO: This doesn't work until the control bar is hidden then shown again
+    // in Flash. Need to find a better way to do this.
+    $(this.el_).toggleClass('active');
 
     if (track.mode_ === 0) {
         this.player_.showTextTrack(this.player_.textTracks()[0].id_, this.player_.textTracks()[0].kind());
@@ -36,8 +38,4 @@ videojs.plugin('caption', function() {
     var options = { 'el' : createCaptionButton() };
     caption = new videojs.Caption(this, options);
     this.controlBar.el().appendChild(caption.el());
-});
-
-var vid = videojs("example_video_1", {
-    plugins : { caption : {} }
 });
