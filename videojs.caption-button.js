@@ -23,6 +23,13 @@ videojs.Caption.prototype.onClick = function() {
         track.disable();
         this.removeClass('active');
     }
+
+    // We hide then show the controlbar to overcome an issue in IE8 where
+    // the class is not updated until the controlbar is hidden, then shown
+    if (this.player_.techName != 'Html5') {
+        this.player_.controlBar.hide();
+        this.player_.controlBar.show();
+    }
 };
 
 // Note that we're not doing this in prototype.createEl() because
